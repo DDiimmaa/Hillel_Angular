@@ -46,21 +46,6 @@ class Student {
         }
     }
 
-    summary_old = function(){
-        var averageMark = parseInt(this.getAverageMark());
-
-        var averageAttendance = this.getAverageAttendance();
-
-        if(averageMark > normalAverage && averageAttendance > normalAttendance){
-            console.log(this.getName() + " ("+averageMark+", "+averageAttendance+"): Uti kakoi molodchinka")
-        }
-        else if(averageMark < normalAverage ^ averageAttendance < normalAttendance){
-            console.log(this.getName() + " ("+averageMark+", "+averageAttendance+"): Norm bro, but mozhno lusche")
-        }
-        else {
-            console.log(this.getName() + " ("+averageMark+", "+averageAttendance+"): Bad boy!")
-        }
-    }
     summary = function(){
         var averageMark = parseInt(this.getAverageMark());
 
@@ -84,7 +69,7 @@ class StudentGroup {
 
     }
 
-    attendance(name = undefined){
+    attendance(name?:string){
         var averageAttendances = [];
         for(var k = 0; k < this.students.length;k++){
             averageAttendances.push({name: this.students[k].getName(), averageAttendance:this.students[k].getAverageAttendance()});
@@ -108,7 +93,7 @@ class StudentGroup {
         }
     }
 
-    performance(name = undefined) {
+    performance(name?:string) {
         var averageMarks = [];
         for(var k = 0; k< this.students.length;k++){
             averageMarks.push({name: this.students[k].getName(), averageMark:this.students[k].getAverageMark()});

@@ -6,19 +6,6 @@ var Student = /** @class */ (function () {
         this.yearOfBirth = yearOfBirth;
         this.marks = marks;
         this.attendance = new Array(25);
-        this.summary_old = function () {
-            var averageMark = parseInt(this.getAverageMark());
-            var averageAttendance = this.getAverageAttendance();
-            if (averageMark > normalAverage && averageAttendance > normalAttendance) {
-                console.log(this.getName() + " (" + averageMark + ", " + averageAttendance + "): Uti kakoi molodchinka");
-            }
-            else if (averageMark < normalAverage ^ averageAttendance < normalAttendance) {
-                console.log(this.getName() + " (" + averageMark + ", " + averageAttendance + "): Norm bro, but mozhno lusche");
-            }
-            else {
-                console.log(this.getName() + " (" + averageMark + ", " + averageAttendance + "): Bad boy!");
-            }
-        };
         this.summary = function () {
             var averageMark = parseInt(this.getAverageMark());
             var averageAttendance = this.getAverageAttendance();
@@ -70,7 +57,6 @@ var StudentGroup = /** @class */ (function () {
         this.students = students;
     }
     StudentGroup.prototype.attendance = function (name) {
-        if (name === void 0) { name = undefined; }
         var averageAttendances = [];
         for (var k = 0; k < this.students.length; k++) {
             averageAttendances.push({ name: this.students[k].getName(), averageAttendance: this.students[k].getAverageAttendance() });
@@ -92,7 +78,6 @@ var StudentGroup = /** @class */ (function () {
         }
     };
     StudentGroup.prototype.performance = function (name) {
-        if (name === void 0) { name = undefined; }
         var averageMarks = [];
         for (var k = 0; k < this.students.length; k++) {
             averageMarks.push({ name: this.students[k].getName(), averageMark: this.students[k].getAverageMark() });
